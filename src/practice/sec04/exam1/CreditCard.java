@@ -3,9 +3,11 @@ package practice.sec04.exam1;
 public class CreditCard implements Payment{
     private int amount;
     @Override
-    public void pay(int amount) {
+    public boolean pay(int amount) {
         this.amount = amount;
-        System.out.println("[신용카드] "+amount+"원 결제 완료");
+     System.out.println("[신용카드] "+amount+"원 결제 완료");
+        Payment.log("결제 수단: ["+this.getClass().getSimpleName() +"], 금액: " + amount + "원");
+        return true;
     }
 
     @Override
